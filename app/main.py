@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Depends, status
+from fastapi import FastAPI, Depends, status
 from sqlalchemy.orm import Session
 from app import models, schemas, crud
 from app.database import SessionLocal, engine

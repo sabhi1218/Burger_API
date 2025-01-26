@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from . import models, schemas
 
+
 BURGER_INGREDIENTS = {
     "bun": 1,
     "patty": 1,
@@ -8,6 +9,7 @@ BURGER_INGREDIENTS = {
     "tomato": 1,
     "ketchup": 1,
 }
+
 
 def add_stock(db: Session, stock: schemas.StockCreate):
     db_item = db.query(models.Stock).filter(models.Stock.item == stock.item).first()
@@ -19,6 +21,7 @@ def add_stock(db: Session, stock: schemas.StockCreate):
     db.commit()
     db.refresh(db_item)
     return db_item
+
 
 def get_burger_count(db: Session):
     stock = db.query(models.Stock).all()
